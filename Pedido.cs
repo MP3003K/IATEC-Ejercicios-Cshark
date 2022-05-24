@@ -14,17 +14,11 @@ public class Pedido
 
     public int Cantidad { get; private set; }
 
-    public decimal Descuento { get; private set; }
+    private decimal temp_descuento = 0m;
+    public decimal Descuento { get { return temp_descuento; } set { temp_descuento = value; } }
 
-    public decimal temp_total = 0m;
-    public decimal ValorTotal { get => CalcularTotal(); set => temp_total = value; }
-
-    public decimal CalcularTotal()
-    {
-        Console.WriteLine("Ejecutando Funcion CalcularTotal");
-        temp_total = (PrecioUnitario * Cantidad);
-        return temp_total;
-    }
+    private decimal temp_total = 0m;
+    public decimal ValorTotal { get { return temp_total; } set { temp_total = value; } }
 
     public Pedido(int id, string producto, Categoria categoria, decimal precioUnitario, int cantidad)
     {
