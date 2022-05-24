@@ -7,7 +7,7 @@ new Estudiante(3,"Juana"),
 new Estudiante(4,"Zeno"),
 new Estudiante(4,"Perez"),
 };
-//Buenas tardes
+//Buenos dias
 var ordenadosPorNombre = estudiantes.OrderBy(e => e.Nombre);
 foreach( var estudiante in ordenadosPorNombre)
 {
