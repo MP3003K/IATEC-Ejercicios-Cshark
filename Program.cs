@@ -1,17 +1,17 @@
-﻿Console.WriteLine("Hello, World!");
-List<Estudiante> estudiantes = new()
-{
-new Estudiante(1,"Liza"),
-new Estudiante(2,"Ana"),
-new Estudiante(3,"Juana"),
-new Estudiante(4,"Zeno"),
-new Estudiante(4,"Perez"),
-};
+﻿int n, num, mayor = 0;
 
-//Por fin 55
+Console.WriteLine("¿De cuantos números?");
+n = int.Parse(Console.ReadLine());
 
-var ordenadosPorNombre = estudiantes.OrderBy(e => e.Nombre);
-foreach( var estudiante in ordenadosPorNombre)
+for (int i = 1; i <= n; i++)
 {
-    Console.WriteLine($"{estudiante.ID}{estudiante.Nombre}");
+    Console.WriteLine("Ingrese un número");
+    num = int.Parse(Console.ReadLine());
+    if (num > mayor)
+    {
+        mayor = num;
+    }
 }
+
+Console.WriteLine($"El mayor es: {mayor}");
+//Console.ReadKey();
