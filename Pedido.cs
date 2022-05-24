@@ -2,7 +2,7 @@
 public enum Categoria
 {
     Cuna = 0,
-    Primario = 1
+    Primarios = 1
 }
 public class Pedido
 {
@@ -28,4 +28,6 @@ public class Pedido
         PrecioUnitario = precioUnitario;
         Cantidad = cantidad;
     }
+
+
 }

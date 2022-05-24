@@ -2,22 +2,26 @@
 List<Pedido> pedidos = new();
 
 int opcion = 0, opcion2 = 0;
-int ID = 1;
-String productos = "";
+int ID = 0;
+String productos;
 int cantidad;
 decimal precio;
 Categoria categoria = Categoria.Cuna;
 while (opcion != 2)
 {
-    Console.WriteLine("    Menu");
+    Console.WriteLine("");
+    Console.WriteLine("<----------Menu---------->");
     Console.WriteLine("");
     Console.WriteLine(" 1. Agregar pedido");
     Console.WriteLine(" 2. Salir");
+    Console.WriteLine("");
     opcion = int.Parse(Console.ReadLine());
+    Console.WriteLine("");
+
     switch (opcion)
     {
         case 1:
-            Console.Write(" Ingrese Pedido :");
+            Console.Write(" Ingrese Pedido : ");
             productos = Console.ReadLine();
             Console.Write(" Precio         : ");
             precio = decimal.Parse(Console.ReadLine());
@@ -28,7 +32,7 @@ while (opcion != 2)
             {
                 Console.WriteLine("");
                 Console.WriteLine(" Categoria ");
-                Console.WriteLine("Elija una opcion");
+                Console.WriteLine(" Elija una opcion");
                 Console.WriteLine(" 1) Cuna");
                 Console.WriteLine(" 2) Primarios");
                 Console.WriteLine("");
@@ -40,12 +44,14 @@ while (opcion != 2)
                         categoria = Categoria.Cuna;
                         break;
                     case 2:
-                        categoria = Categoria.Primario;
+                        categoria = Categoria.Primarios;
                         break;
                     default:
                         Console.WriteLine("Elija una opcion correcta");
                         break;
                 }
+                Console.WriteLine(categoria);
+                Console.WriteLine("");
             }
 
             Pedido p = new Pedido(ID, productos, categoria, precio, cantidad);
@@ -56,6 +62,7 @@ while (opcion != 2)
         case 2:
             break;
         default:
+            Console.WriteLine("");
             Console.WriteLine("Seleccione una opcion correcta");
             Console.WriteLine("");
             break;
@@ -63,21 +70,22 @@ while (opcion != 2)
 }
 
 Console.WriteLine("");
-Console.WriteLine("Lista de Pedidos");
+Console.WriteLine("<-----------Lista de Pedidos---------->");
 Console.WriteLine("");
-
 foreach (var pedido in pedidos)
 {
-    Console.WriteLine($"{pedido.ID}");
-    Console.WriteLine($"{pedido.Producto}");
-    Console.WriteLine($"{pedido.Categoria}");
-    Console.WriteLine($"{pedido.PrecioUnitario}");
-    Console.WriteLine($"{pedido.Descuento}");
-
+    Console.WriteLine("");
+    Console.WriteLine(" N°              : "+$"{pedido.ID+1}");
+    Console.WriteLine(" Producto        : "+$"{pedido.Producto}");
+    Console.WriteLine(" Categoria       : "+$"{pedido.Categoria}");
+    Console.WriteLine(" Precio Unitario : "+$"{pedido.PrecioUnitario}");
     calculadora.PrecioTotal(pedido);
-    Console.WriteLine(pedido.ValorTotal);
+    Console.WriteLine(" Descuento       : " + $"{pedido.Descuento}");
+    Console.WriteLine(" Precio Total     : "+pedido.ValorTotal);
+    Console.WriteLine("");
+    Console.WriteLine("");
 }
 
-Console.WriteLine("Final de Lectura");
+
 
 
