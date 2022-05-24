@@ -1,30 +1,29 @@
 ﻿
 List<Pedido> pedidos = new()
 {
-   new Pedido(1,"Revista.g34",Categoria.Cuna,0.98m,2),
-   new Pedido(2,"cuadernillo.g25",Categoria.Cuna,5.28m,9),
-   new Pedido(2,"Corbata.g45",Categoria.Primario,9.80m,5),
-   new Pedido(2,"Buso.g12",Categoria.Primario,20.99m,2)
+   new Pedido(1,"A",Categoria.Cuna,1.75m,8),
+   new Pedido(2,"B",Categoria.Cuna,4.99m,4),
+   new Pedido(2,"C",Categoria.Cuna,2.78m,10),
+   new Pedido(2,"D",Categoria.Primario,7.5m,3),
+   new Pedido(2,"E",Categoria.Primario,2.3m,13),
+   new Pedido(2,"F",Categoria.Primario,9.99m,20),
 };
-/*
-foreach (var pedido in pedidos)
+
+
+CalculadoraDePrecios calculadora = new();
+
+foreach(var pedido in pedidos)
 {
-    Console.WriteLine($"{pedido.ID}");
-    Console.WriteLine($"{pedido.Producto}");
-    Console.WriteLine($"{pedido.Categoria}");
-    Console.WriteLine($"{pedido.PrecioUnitario}");
-    Console.WriteLine($"{pedido.Descuento}");
+  pedido.ValorTotal=  calculadora.PrecioTotal(pedido);
 }
-*/
-
 
 foreach (var pedido in pedidos)
 {
-    Console.WriteLine($"{pedido.ID}");
+  /*  Console.WriteLine($"{pedido.ID}");
     Console.WriteLine($"{pedido.Producto}");
     Console.WriteLine($"{pedido.Categoria}");
     Console.WriteLine($"{pedido.PrecioUnitario}");
-    Console.WriteLine($"{pedido.Descuento}");
+    Console.WriteLine($"{pedido.Descuento}");*/
     Console.WriteLine(pedido.ValorTotal);
     Console.WriteLine("------------------");
 }

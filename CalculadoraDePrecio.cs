@@ -1,21 +1,36 @@
 ﻿
     public class CalculadoraDePrecios
     {
-        public void PrecioTotal()
+    public decimal PrecioTotal(Pedido pedido)
+    {
+        decimal total;
+        total = pedido.PrecioUnitario * pedido.Cantidad;
+        if (pedido.Categoria == Categoria.Cuna)
         {
-        List<Pedido> pedidos = new();
-        foreach( var pedido in pedidos)
-        {
-            if (pedido.Categoria == 0)
+            if (total > 20.0m)
             {
-                pedido.ValorTotal = 1m;
+                total = total * 0.8m;
             }
             else
             {
-                pedido.ValorTotal =0m;
+                total = total * 0.9m;
             }
         }
+        else
+        {
+            Console.Write("Total: "+total+" -->"); 
+            if (total > 30.0m)
+            {
+                total = total * 0.75m;
+                Console.WriteLine(total);
+            }
+            else
+            {
+                total = total * 0.85m;
+                Console.WriteLine(total);
 
+            }
+        }
+        return total;
     }
-        
-    }
+}
