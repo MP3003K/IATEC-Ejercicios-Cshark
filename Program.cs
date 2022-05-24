@@ -14,4 +14,4 @@ for (int i = 1; i <= n; i++)
 }
 
 Console.WriteLine($"El mayor es: {mayor}");
-//Console.ReadKey();
+//Console.ReadKey(); *2
