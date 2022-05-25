@@ -81,7 +81,7 @@ foreach (var pedido in pedidos)
     Console.WriteLine(" Precio Unitario : "+$"{pedido.PrecioUnitario}");
     calculadora.PrecioTotal(pedido);
     Console.WriteLine(" Descuento       : " + $"{pedido.Descuento}");
-    Console.WriteLine(" Precio Total     : "+pedido.ValorTotal);
+    Console.WriteLine(" Precio Total    : "+pedido.ValorTotal);
     Console.WriteLine("");
     Console.WriteLine("");
 }
